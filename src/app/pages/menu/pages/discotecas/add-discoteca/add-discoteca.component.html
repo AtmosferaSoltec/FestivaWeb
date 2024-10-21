@@ -1,0 +1,139 @@
+<div class="flex flex-col gap-6 p-4">
+  <div class="flex items-center">
+    <button mat-icon-button>
+      <mat-icon class="text-white">arrow_back</mat-icon>
+    </button>
+    <span class="text-2xl font-black">Agregar Discoteca</span>
+  </div>
+
+  <div class="flex flex-row w-full gap-8">
+    <div class="flex flex-col flex-1 gap-4">
+      <span class="text-xl font-black">Información</span>
+      <app-input label="Nombre" placeholder="Ingrese nombre de la discoteca" />
+      <app-input label="Teléfono" placeholder="Ingrese teléfono" />
+      <app-input label="Dirección" placeholder="Ingrese dirección" />
+      <app-input label="Url Maps" placeholder="Ingrese URL de Google Maps" />
+      <app-input label="Descripción" placeholder="Agrega una descripción" />
+    </div>
+    <div class="flex flex-col flex-1 gap-4">
+      <span class="text-xl font-black">Imagenes</span>
+      <div class="flex flex-col gap-1">
+        <label for="logo" class="text-sm font-semibold text-colorT2"
+          >Logo</label
+        >
+        <input type="file" name="logo" />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="logo" class="text-sm font-semibold text-colorT2"
+          >Portada</label
+        >
+        <input type="file" name="logo" />
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-row w-full gap-8">
+    <div class="flex-1">
+      <span class="text-xl font-black">Horarios de Atención</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Día</th>
+            <th>Apertura</th>
+            <th>Cierre</th>
+          </tr>
+        </thead>
+        <tbody class="text-black">
+          <tr>
+            <td class="text-white">Lunes</td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+          </tr>
+          <tr>
+            <td class="text-white">Martes</td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+          </tr>
+          <tr>
+            <td class="text-white">Miércoles</td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+          </tr>
+          <tr>
+            <td class="text-white">Jueves</td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+          </tr>
+          <tr>
+            <td class="text-white">Viernes</td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+          </tr>
+          <tr>
+            <td class="text-white">Sábado</td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+          </tr>
+          <tr>
+            <td class="text-white">Domingo</td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex-1">
+      <span class="text-xl font-black">Redes Sociales</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Red</th>
+            <th>Url</th>
+          </tr>
+        </thead>
+        <tbody class="text-black">
+          <tr>
+            <td class="text-white">Facebook</td>
+            <td>
+              <input type="url" />
+            </td>
+          </tr>
+          <tr>
+            <td class="text-white">Instagram</td>
+            <td>
+              <input type="url" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

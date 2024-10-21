@@ -1,0 +1,63 @@
+<div class="flex flex-col w-full gap-4 p-8">
+  <div class="flex items-center gap-2">
+    <button mat-icon-button>
+      <mat-icon class="text-white">arrow_back</mat-icon>
+    </button>
+    <span class="text-2xl font-bold">Detalle</span>
+  </div>
+  <app-info-text label="Nombre" [text]="discoteca?.nombre" />
+  <app-info-text label="Descripción" [text]="discoteca?.descrip" />
+  <app-info-text label="Dirección" [text]="discoteca?.direc" />
+  <app-info-text label="Teléfono" [text]="discoteca?.telf" />
+  <app-info-text label="Maps" [text]="discoteca?.url_maps" />
+
+  <div class="flex flex-col gap-2">
+    <span class="text-xl font-bold">Logo</span>
+    <div>
+      <img class="h-[240px]" [src]="discoteca?.url_logo" alt="" />
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <span class="text-xl font-bold">Portada</span>
+    <div>
+      <img class="h-[240px]" [src]="discoteca?.url_portada" alt="" />
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <span class="text-xl font-bold">Redes</span>
+    <div class="flex flex-row gap-4">
+      @for (item of discoteca?.discotecaRedes; track $index) {
+      <div class="flex flex-col items-center">
+        <img class="w-16" [src]="item.logo" alt="" />
+        <span class="text-[10px]">{{ item.red }}</span>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <span class="text-xl font-bold">Horarios de Atención</span>
+    <div>
+      <table class="text-center table-auto">
+        <thead>
+          <tr>
+            <th class="w-[120px] font-bold text-left">Dia</th>
+            <th class="w-[120px]">Inicio</th>
+            <th class="w-[120px]">Fin</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of discoteca?.horariosAtencion; track $index) {
+            <tr class="text-colorT2">
+              <td class="text-left">{{item.dia | dia}}</td>
+              <td>{{item.hora_inicio}}</td>
+              <td>{{item.hora_fin}}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

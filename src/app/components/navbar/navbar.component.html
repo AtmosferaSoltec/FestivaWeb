@@ -1,0 +1,30 @@
+<nav class="h-[80px] sm:h-screen sm:w-[300px] p-4">
+  <div
+    class="flex flex-col items-center h-full gap-4 p-4 bg-colorFondo2 rounded-xl"
+  >
+    <img class="w-[200px] my-8" src="../../../assets/logo_large.png" alt="" />
+    @for (item of listNav; track $index) {
+    <a
+      [routerLink]="[item.route]"
+      routerLinkActive="bg-colorP1 font-bold"
+      class="flex items-center w-full gap-2 px-4 py-2 text-white transition-colors rounded-xl hover:bg-colorP1"
+    >
+      <mat-icon>{{ item.icon }}</mat-icon>
+      <span class="text-lg">{{ item.name }}</span>
+    </a>
+    }
+    <div class="flex-auto"></div>
+    <div class="flex flex-row items-center w-full gap-2 text-white">
+      <img
+        src="https://media.istockphoto.com/id/1386479313/es/foto/feliz-mujer-de-negocios-afroamericana-millennial-posando-aislada-en-blanco.jpg?s=612x612&w=0&k=20&c=JP0NBxlxG2-bdpTRPlTXBbX13zkNj0mR5g1KoOdbtO4="
+        alt="Perfil"
+        class="object-cover w-12 h-12 rounded-full"
+      />
+      <div class="flex flex-col flex-1 h-[60px] justify-center">
+        <span class="font-bold">Admin</span>
+        <p class="text-sm">Joel Maldonado</p>
+      </div>
+      <mat-icon>arrow_back_ios</mat-icon>
+    </div>
+  </div>
+</nav>

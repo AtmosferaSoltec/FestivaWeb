@@ -1,0 +1,10 @@
+<div class="flex flex-col gap-1">
+  @if (label) {
+    <label class="text-sm font-semibold ps-4 text-colorT2">{{ label }}</label>
+  }
+  <input
+    type="text"
+    class="bg-gray-100 border text-colorT2 border-none text-sm rounded-full focus:ring-colorP1 focus:border-colorP1 focus:outline-none focus:ring-2 block w-full py-2.5 px-4"
+    [placeholder]="placeholder"
+  />
+</div>
