@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class ArtistaService {
   private readonly baseUrl = `${environment.baseUrl}/artista`;
   private readonly http = inject(HttpClient);
+  
   getAll() {
     return this.http.get(this.baseUrl);
   }

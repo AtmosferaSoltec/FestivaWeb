@@ -1,1 +1,15 @@
-<p>dialog-form-artista works!</p>
+<div class="flex flex-col gap-2 p-4">
+  <app-caja-text [(ngModel)]="nombre" label="Nombre" />
+  <app-caja-text [(ngModel)]="tipo" label="Tipo" />
+  <app-caja-text [(ngModel)]="descrip" label="Descripción" />
+  <app-caja-text [(ngModel)]="biografia" label="Biografia" />
+  <app-caja-text [(ngModel)]="tags" label="Tags" />
+
+  <select>
+    @for (item of redesService.listRedes(); track $index) {
+    <option [value]="item.id">{{ item.nombre }}</option>
+    }
+  </select>
+
+  <button (click)="save()">Prueba</button>
+</div>

@@ -11,18 +11,6 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
   templateUrl: './menu.component.html',
 })
 export class MenuComponent {
-  get(): string {
-    const expiry = localStorage.getItem(environment.tokenExpiry);
-    if (!expiry) {
-      return 'No se pudo';
-    }
 
-    const fecha = parseInt(expiry, 10);
-    if (isNaN(fecha) || Date.now() > fecha) {
-      return 'No se pudo';
-    }
-
-    const fechaString = new Date(fecha).toLocaleString();
-    return fechaString;
-  }
+  
 }

@@ -1,0 +1,7 @@
+
+
+<div class="flex flex-wrap gap-4">
+    @for (item of service.listArtistas(); track $index) {
+    <app-card-artista [artista]="item" (openModal)="openModal(item)" />
+    }
+  </div>

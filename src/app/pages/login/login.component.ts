@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -12,21 +12,22 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-  ],
-  templateUrl: './login.component.html'
+  imports: [ReactiveFormsModule],
+  templateUrl: './login.component.html',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  ngOnInit(): void {
+    this.validarSesion();
+  }
   authService = inject(AuthService);
-  router = inject(Router)
+  router = inject(Router);
 
   formulario = new FormGroup({
     user: new FormControl('', [Validators.required]),
     pass: new FormControl('', [Validators.required]),
   });
 
-  login() {
+  async login() {
     if (!this.formulario.valid) {
       return;
     }
@@ -38,20 +39,21 @@ export class LoginComponent {
 
     this.authService.login(user, pass).subscribe({
       next: (data: any) => {
-        if (data?.data) {
-          localStorage.setItem(environment.token, data.data.access_token);
-          localStorage.setItem(
-            environment.tokenExpiry,
-            (Date.now() + data.data.expires_in * 1000).toString()
-          );
-          this.router.navigate(['menu'])
-        } else {
-          console.log(data);
-        }
+        localStorage.setItem(environment.token, data.access_token);
+        this.router.navigate(['menu']);
       },
       error: (err) => {
-        console.log(err);
+        alert(err);
       },
     });
+  }
+
+  async validarSesion() {
+    try {
+      await this.authService.validarSesion();
+      return this.router.navigate(['menu']);
+    } catch (error) {
+      return
+    }
   }
 }
