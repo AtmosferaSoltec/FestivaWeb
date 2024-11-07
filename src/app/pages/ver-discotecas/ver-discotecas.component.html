@@ -1,0 +1,45 @@
+<div class="relative transition-transform">
+  <div class="flex flex-col p-8">
+    <!-- Cabecera -->
+    <div class="flex items-center justify-between">
+      <h3>Discotecas</h3>
+      <button mat-raised-button (click)="toAdd()">
+        <mat-icon>add</mat-icon>
+        <span>Nuevo</span>
+      </button>
+    </div>
+
+    <!-- Listado de Cards -->
+    <div class="flex items-center justify-center">
+      @if (service.isLoading()) {
+      <div class="mt-10 loader"></div>
+      } @else {
+      <div
+        class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
+        <!-- Card -->
+        @for (item of service.listDiscoteca(); track $index) {
+        <app-card-discoteca [discoteca]="item" (click)="showInfo(item)" />
+        } @empty {
+        <div class="text-center">No hay discotecas</div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  @if (service.showInfo()) {
+  <div
+    class="flex flex-col absolute top-0 bottom-0 right-0 w-[400px] z-10 h-screen bg-red-400"
+  >
+    <button mat-icon-button (click)="service.showInfo.set(null)">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <div>
+        <h3>{{ service.showInfo()?.nombre }}</h3>
+        <p>{{ service.showInfo()?.descrip }}</p>
+    </div>
+  </div>
+  }
+</div>

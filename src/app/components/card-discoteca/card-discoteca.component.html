@@ -1,0 +1,29 @@
+<div
+  class="w-full overflow-hidden transition-transform cursor-pointer bg-colorFondo rounded-2xl active:scale-100 hover:scale-105"
+>
+  <div class="relative w-[380px] h-[132px]">
+    <img
+      [src]="discoteca?.url_portada"
+      alt=""
+      class="object-cover w-full h-full select-none"
+      draggable="false"
+    />
+    <span
+      class="absolute top-2 left-2 px-[4px] py-[2px] bg-green-500 text-sm rounded-md select-none"
+    >
+      Abierto
+    </span>
+  </div>
+  <div class="flex flex-row items-center gap-2 p-2">
+    <img
+      [src]="discoteca?.url_logo"
+      alt=""
+      class="w-[48px] h-[48px] object-cover rounded-md select-none"
+      draggable="false"
+    />
+    <div class="flex flex-col">
+      <span class="text-white select-none">{{ discoteca?.nombre }}</span>
+      <span class="select-none text-colorT2">Discoteca</span>
+    </div>
+  </div>
+</div>

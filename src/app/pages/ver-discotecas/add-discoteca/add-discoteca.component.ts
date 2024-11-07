@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { InputComponent } from '../../../../../components/input/input.component';
+import { InputComponent } from '../../../components/input/input.component';
 
 @Component({
   selector: 'app-add-discoteca',

@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DiscotecaService } from '../../../../../services/discoteca.service';
+import { DiscotecaService } from '../../../services/discoteca.service';
 import { CommonModule } from '@angular/common';
-import Discoteca from '../../../../../interfaces/discoteca';
-import { InfoTextComponent } from '../../../../../components/info-text/info-text.component';
+import Discoteca from '../../../interfaces/discoteca';
+import { InfoTextComponent } from '../../../components/info-text/info-text.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { DiaPipe } from '../../../../../pipes/dia.pipe';
+import { DiaPipe } from '../../../pipes/dia.pipe';
 
 @Component({
   selector: 'app-detalle-discoteca',
