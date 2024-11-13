@@ -28,6 +28,7 @@ module.exports = {
   plugins: [
     function ({ addComponents }) {
       addComponents({
+        
         ".input-time": {
           border: "1px solid #d1d5db", // border-gray-300
           borderRadius: "0.5rem", // rounded-lg

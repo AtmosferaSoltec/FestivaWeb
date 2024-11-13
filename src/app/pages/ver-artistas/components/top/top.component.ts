@@ -1,23 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogFormArtistaComponent } from '../../../../common/dialog-form-artista/dialog-form-artista.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top',
   standalone: true,
   imports: [MatIconModule, MatButtonModule],
-  templateUrl: './top.component.html'
+  templateUrl: './top.component.html',
 })
 export class TopComponent {
-  dialog = inject(MatDialog);
 
-  constructor() {
-    this.openDialog();
+  router = inject(Router);
+
+  toAddArtista() {
+    this.router.navigate(['menu', 'artistas', 'add']);
   }
 
-  openDialog() {
-    const dialogRed = this.dialog.open(DialogFormArtistaComponent);
-  }
 }

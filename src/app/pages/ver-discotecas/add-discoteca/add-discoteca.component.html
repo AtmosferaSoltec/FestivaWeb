@@ -110,30 +110,45 @@
         </tbody>
       </table>
     </div>
-    <div class="flex-1">
-      <span class="text-xl font-black">Redes Sociales</span>
-      <table>
-        <thead>
-          <tr>
-            <th>Red</th>
-            <th>Url</th>
-          </tr>
-        </thead>
-        <tbody class="text-black">
-          <tr>
-            <td class="text-white">Facebook</td>
-            <td>
-              <input type="url" />
-            </td>
-          </tr>
-          <tr>
-            <td class="text-white">Instagram</td>
-            <td>
-              <input type="url" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Redes Sociales -->
+    <div class="flex flex-col flex-1 gap-2">
+      <!-- Top Redes -->
+      <div class="flex items-center gap-4">
+        <span class="text-xl font-black">Redes Sociales</span>
+        <button class="btn-icon-fab" (click)="showModalRedes()">
+          <mat-icon class="text-white">add</mat-icon>
+        </button>
+      </div>
+      <!-- Tabla Redes -->
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500 rtl:text-right">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">Red Social</th>
+              <th scope="col" class="px-6 py-3">Url</th>
+              <th scope="col" class="px-6 py-3">Nro</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of listRedes; track $index) {
+            <tr class="bg-white border-b">
+              <td class="px-6 py-4">{{ item.idRed }}</td>
+              <td class="px-6 py-4">{{ item.url }}</td>
+              <td class="px-6 py-4">
+                <div>
+                  <button mat-icon-button>
+                    <mat-icon class="text-colorFondo">edit</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="removeRed(item)">
+                    <mat-icon class="text-colorFondo">remove</mat-icon>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

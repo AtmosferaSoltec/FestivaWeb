@@ -1,0 +1,27 @@
+<form class="w-full">
+
+  <span>Discoteca ID2: {{ discotecaID ?? "Sin Discoteca" }}</span>
+
+  <mat-form-field class="w-full">
+    <mat-label>Selecciona una Discoteca</mat-label>
+    <input
+      matInput
+      aria-label="State"
+      [matAutocomplete]="auto"
+      [formControl]="stateCtrl"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (item of filterDiscotecas | async; track item) {
+      <mat-option [value]="item.nombre">
+        <div class="flex items-center gap-2">
+            <img alt="" class="w-[42px]" [src]="item.url_logo" />
+            <span>{{ item.nombre }}</span>
+        </div>
+      </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br />
+
+</form>

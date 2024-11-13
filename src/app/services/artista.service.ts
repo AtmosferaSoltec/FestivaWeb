@@ -12,4 +12,8 @@ export class ArtistaService {
   getAll() {
     return this.http.get(this.baseUrl);
   }
+
+  insert(data: any) {
+    return this.http.post(this.baseUrl, data);
+  }
 }

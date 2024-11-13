@@ -28,6 +28,10 @@ body {
   @apply px-4;
 }
 
+.btn-icon-fab {
+  @apply flex w-[32px] h-[32px] items-center justify-center rounded-full bg-colorP1 hover:opacity-90 active:opacity-80 shadow-lg hover:scale-105 transition-transform;
+}
+
 /* HTML: <div class="loader"></div> */
 .loader {
   width: 50px;

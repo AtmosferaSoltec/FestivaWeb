@@ -18,4 +18,8 @@ export class AuthService {
     const call = this.http.post(`${this.baseUrl}/validar-sesion`, {});
     return lastValueFrom(call);
   }
+
+  getPerfil() {
+    return this.http.get(`${this.baseUrl}/perfil`);
+  }
 }

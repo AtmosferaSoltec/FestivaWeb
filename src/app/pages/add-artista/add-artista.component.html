@@ -1,0 +1,81 @@
+<div class="flex items-center justify-center w-full h-full p-4">
+  <form
+    class="flex flex-col items-center w-[400px] bg-colorFondo py-8 shadow-xl rounded-lg gap-4"
+    [formGroup]="formulario"
+    (submit)="save()"
+  >
+    <span class="text-2xl font-bold"> Agregar Artista </span>
+
+    <app-subir-archivo [(archivo)]="selectedFile"/>
+    
+    <button mat-raised-button (click)="subir()">Subir</button>
+
+    <div class="w-[80%]">
+      <!-- Nombre -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre"/>
+      </mat-form-field>
+      <!-- Tipo -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Tipo</mat-label>
+        <input matInput formControlName="tipo"/>
+      </mat-form-field>
+      <!-- Descripción -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descrip"></textarea>
+      </mat-form-field>
+      <!-- Biografia -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Biografia</mat-label>
+        <textarea matInput formControlName="biografia"></textarea>
+      </mat-form-field>
+      <!-- Tags -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Tags</mat-label>
+        <input matInput formControlName="tags"/>
+      </mat-form-field>
+      <!-- Foto 1 -->
+      <!-- Foto 2 -->
+      <!-- Redes -->
+
+      <!-- Top Redes -->
+      <div class="flex items-center gap-4">
+        <span class="text-xl font-black">Redes Sociales</span>
+        <button class="btn-icon-fab" type="button" (click)="showModalRedes()">
+          <mat-icon class="text-white">add</mat-icon>
+        </button>
+      </div>
+
+      <div class="relative mt-4 overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500 rtl:text-right">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">Red Social</th>
+              <th scope="col" class="px-6 py-3">Url</th>
+              <th scope="col" class="px-6 py-3">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of listRedes; track $index) {
+            <tr class="bg-white border-b">
+              <td class="px-6 py-4">{{ item.id_red }}</td>
+              <td class="px-6 py-4">{{ item.url }}</td>
+              <td class="px-6 py-4">
+                <button mat-icon-button (click)="removeRed($index)">
+                  <mat-icon class="text-colorFondo">remove</mat-icon>
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="flex items-center">
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </div>
+  </form>
+</div>

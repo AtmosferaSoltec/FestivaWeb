@@ -1,9 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
-import Artista from '../../interfaces/artista';
+import { Component, inject } from '@angular/core';
 import { ArtistaService } from '../../services/artista.service';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { CardArtistaComponent } from '../../components/card-artista/card-artista.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { VerArtistasService } from './ver-artistas.service';
 import { TopComponent } from './components/top/top.component';

@@ -1,0 +1,46 @@
+<div class="flex items-center justify-center w-full h-full p-4">
+  <form
+    class="flex flex-col items-center w-[400px] bg-colorFondo py-8 shadow-xl rounded-lg gap-4"
+    [formGroup]="formulario"
+    (submit)="save()"
+  >
+    <span class="text-2xl font-bold"> Agregar Evento </span>
+
+    <div class="w-[80%]">
+      <span>Discoteca ID: {{ discotecaId ?? "Sin Discoteca" }}</span>
+      <app-autocomplete-discoteca [discotecaID]="discotecaId" />
+
+      <!-- Nombre -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+      </mat-form-field>
+      <!-- Tipo -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Tipo</mat-label>
+        <input matInput formControlName="tipo" />
+      </mat-form-field>
+      <!-- Descripción -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descrip"></textarea>
+      </mat-form-field>
+      <!-- Biografia -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Biografia</mat-label>
+        <textarea matInput formControlName="biografia"></textarea>
+      </mat-form-field>
+      <!-- Tags -->
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Tags</mat-label>
+        <input matInput formControlName="tags" />
+      </mat-form-field>
+      <!-- Foto 1 -->
+      <!-- Foto 2 -->
+    </div>
+
+    <div class="flex items-center">
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </div>
+  </form>
+</div>

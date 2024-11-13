@@ -1,0 +1,29 @@
+<div class="flex flex-col gap-4 p-4">
+  <span class="text-xl">Agregar Red Social</span>
+
+  <div class="flex flex-col items-center">
+    <mat-form-field class="w-full">
+      <mat-label>Red Social</mat-label>
+      <mat-select [(value)]="red">
+        @for (item of service.listRedes(); track $index) {
+          <mat-option [value]="item.id">{{ item.nombre }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field class="w-full" appearance="fill">
+      <mat-label>Url</mat-label>
+      <input matInput placeholder="https://" [(ngModel)]="url" required/>
+    </mat-form-field>
+    
+    @if (error) {
+      <div class="text-red-500">{{ error }}</div>
+    }
+  </div>
+
+
+  <div class="flex items-center justify-end gap-2">
+    <button mat-raised-button (click)="onNoClick()">Cerrar</button>
+    <button mat-flat-button (click)="save()">Guardar</button>
+  </div>
+</div>

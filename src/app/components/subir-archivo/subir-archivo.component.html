@@ -1,0 +1,29 @@
+<div class="w-full">
+  @if (archivo) {
+  <div
+    class="flex flex-row items-center gap-2 px-4 bg-gray-200 rounded-lg shadow-lg h-14"
+  >
+    <mat-icon>image</mat-icon>
+    <span>{{ archivo.name }}</span>
+    <button mat-icon-button (click)="eliminarArchivo()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  } @else {
+    <div class="w-full">
+        <button
+          class="flex flex-row items-center w-full gap-2 px-4 transition-transform duration-100 ease-in-out bg-gray-200 rounded-lg shadow-lg cursor-pointer select-none h-14 text-colorFondo hover:bg-colorP1 hover:text-white hover:scale-105 active:scale-100"
+          (click)="activarInput()"
+        >
+          <mat-icon>upload_image</mat-icon>
+          <span>Subir Archivo</span>
+        </button>
+        <input
+          type="file"
+          #fileInput
+          class="hidden"
+          (change)="onFileSelected($event)"
+        />
+    </div>
+  }
+</div>

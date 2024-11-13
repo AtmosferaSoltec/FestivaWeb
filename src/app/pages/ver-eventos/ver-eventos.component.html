@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-8 p-4">
+  <div class="flex items-center gap-2">
+    <span class="text-2xl font-bold">Crear Evento</span>
+    <button mat-mini-fab class="fab-color" (click)="toAddEvento()">
+      <mat-icon class="text-white">add</mat-icon>
+    </button>
+  </div>
+  <div class="flex flex-wrap gap-4">
+    @for (item of service.listEventos(); track $index) {
+    <app-card-evento [evento]="item" />
+    }
+  </div>
+</div>

@@ -1,11 +1,13 @@
 import { Routes } from '@angular/router';
-import { EventosComponent } from './pages/eventos/eventos.component';
-import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { AddDiscotecaComponent } from '../ver-discotecas/add-discoteca/add-discoteca.component';
 import { DetalleDiscotecaComponent } from '../ver-discotecas/detalle-discoteca/detalle-discoteca.component';
 import { VerArtistasComponent } from '../ver-artistas/ver-artistas.component';
 import { VerDiscotecasComponent } from '../ver-discotecas/ver-discotecas.component';
+import { AddArtistaComponent } from '../add-artista/add-artista.component';
+import { CategoriasComponent } from '../categorias/categorias.component';
+import { VerEventosComponent } from '../ver-eventos/ver-eventos.component';
+import { AddEventoComponent } from '../add-evento/add-evento.component';
 
 export const menuRoutes: Routes = [
   {
@@ -27,11 +29,29 @@ export const menuRoutes: Routes = [
   },
   {
     path: 'eventos',
-    component: EventosComponent,
+    children: [
+      {
+        path: '',
+        component: VerEventosComponent,
+      },
+      {
+        path: 'add',
+        component: AddEventoComponent,
+      }
+    ],
   },
   {
     path: 'artistas',
-    component: VerArtistasComponent,
+    children: [
+      {
+        path: '',
+        component: VerArtistasComponent,
+      },
+      {
+        path: 'add',
+        component: AddArtistaComponent,
+      },
+    ],
   },
   {
     path: 'categorias',
