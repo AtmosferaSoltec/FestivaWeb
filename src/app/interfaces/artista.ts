@@ -1,4 +1,5 @@
 export default interface Artista {
+    id?: number;
     nombre: string;
     tipo?: string
     descrip?: string

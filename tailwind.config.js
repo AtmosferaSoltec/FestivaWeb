@@ -3,6 +3,15 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      animation: {
+        shake: 'shake 200ms infinite'
+      },
+      keyframes: {
+        shake: {
+          '0%, 100%': { transform: 'rotate(-1deg)' },
+          '50%': { transform: 'rotate(1deg)' },
+        },
+      },
       colors: {
         colorP1: "#FF4081",
         colorFondo: "#1E1E1E",

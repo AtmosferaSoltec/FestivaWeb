@@ -2,6 +2,6 @@
 
 <div class="flex flex-wrap gap-4">
     @for (item of service.listArtistas(); track $index) {
-    <app-card-artista [artista]="item" (openModal)="openModal(item)" />
+    <app-card-artista [artista]="item" (openModal)="openModal(item)" (deleteArtista)="deleteArtista($event)" [isDelete]="service.isDeleteActive()" />
     }
   </div>

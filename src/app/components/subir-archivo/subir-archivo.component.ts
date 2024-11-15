@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './subir-archivo.component.html'
 })
 export class SubirArchivoComponent {
+  @Input() label?: string
   @Input() archivo: File | null = null;
   @Output() archivoChange = new EventEmitter<File | null>();
 

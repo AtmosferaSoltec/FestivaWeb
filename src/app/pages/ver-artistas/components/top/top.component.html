@@ -7,4 +7,25 @@
   >
     <mat-icon class="text-white">add</mat-icon>
   </button>
+
+  @if (service.isDeleteActive()) {
+
+  <button
+    mat-mini-fab
+    (click)="togleDeleted()"
+    matTooltip="Cancelar"
+    style="background-color: white"
+  >
+    <mat-icon class="text-colorFondo">close</mat-icon>
+  </button>
+  } @else {
+  <button
+    mat-mini-fab
+    (click)="togleDeleted()"
+    matTooltip="Eliminar"
+    style="background-color: red"
+  >
+    <mat-icon class="text-white">delete</mat-icon>
+  </button>
+  }
 </div>

@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
+import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +19,7 @@ export class FirebaseService {
     }`;
     const storageRef = ref(this.storage, filePath);
     const res = await uploadBytesResumable(storageRef, file);
-    return res;
+    const url = await getDownloadURL(res.ref);
+    return url;
   }
 }

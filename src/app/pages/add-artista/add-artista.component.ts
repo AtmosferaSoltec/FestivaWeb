@@ -14,7 +14,7 @@ import {
 } from '@angular/forms';
 import { AddArtistaService } from './add-artista.service';
 import { FirebaseService } from '../../services/firebase.service';
-import { SubirArchivoComponent } from "../../components/subir-archivo/subir-archivo.component";
+import { SubirArchivoComponent } from '../../components/subir-archivo/subir-archivo.component';
 
 const materialImports = [
   MatFormFieldModule,
@@ -41,6 +41,11 @@ export class AddArtistaComponent {
     tags: new FormControl('', []),
   });
 
+  urlFoto1: File | null = null;
+  urlFoto2: File | null = null;
+
+  firebaseService = inject(FirebaseService);
+
   readonly dialog = inject(MatDialog);
 
   listRedes: any[] = [];
@@ -61,31 +66,38 @@ export class AddArtistaComponent {
     });
   }
 
-  save() {
+  async save() {
     if (this.formulario.invalid) {
       return;
     }
+
+    let url_foto = '';
+    let url_foto2 = '';
+
+    if (this.urlFoto1) {
+      this.service.isLoading.set(true);
+      const res = await this.firebaseService.uploadImage(this.urlFoto1);
+      url_foto = res;
+    }
+
+    if (this.urlFoto2) {
+      this.service.isLoading.set(true);
+      const res = await this.firebaseService.uploadImage(this.urlFoto2);
+      url_foto2 = res;
+    }
+
     const request = {
       nombre: this.formulario.value.nombre,
       tipo: this.formulario.value.tipo,
       descrip: this.formulario.value.descrip,
       biografia: this.formulario.value.biografia,
       tags: this.formulario.value.tags,
-      url_foto: '',
-      url_foto2: '',
+      url_foto,
+      url_foto2,
       redes: this.listRedes,
     };
 
     this.service.saveArtista(request);
   }
 
-  firebaseService = inject(FirebaseService);
-  selectedFile: File | null = null;
-
-  async subir() {
-    if (this.selectedFile) {
-      const res = await this.firebaseService.uploadImage(this.selectedFile);
-      console.log(res);
-    }
-  }
 }

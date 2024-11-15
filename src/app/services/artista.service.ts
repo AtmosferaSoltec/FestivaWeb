@@ -16,4 +16,8 @@ export class ArtistaService {
   insert(data: any) {
     return this.http.post(this.baseUrl, data);
   }
+
+  delete(id: number) {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 }

@@ -6,20 +6,16 @@
   >
     <span class="text-2xl font-bold"> Agregar Artista </span>
 
-    <app-subir-archivo [(archivo)]="selectedFile"/>
-    
-    <button mat-raised-button (click)="subir()">Subir</button>
-
     <div class="w-[80%]">
       <!-- Nombre -->
       <mat-form-field class="w-full" appearance="fill">
         <mat-label>Nombre</mat-label>
-        <input matInput formControlName="nombre"/>
+        <input matInput formControlName="nombre" />
       </mat-form-field>
       <!-- Tipo -->
       <mat-form-field class="w-full" appearance="fill">
         <mat-label>Tipo</mat-label>
-        <input matInput formControlName="tipo"/>
+        <input matInput formControlName="tipo" />
       </mat-form-field>
       <!-- Descripción -->
       <mat-form-field class="w-full" appearance="fill">
@@ -34,14 +30,19 @@
       <!-- Tags -->
       <mat-form-field class="w-full" appearance="fill">
         <mat-label>Tags</mat-label>
-        <input matInput formControlName="tags"/>
+        <input matInput formControlName="tags" />
       </mat-form-field>
-      <!-- Foto 1 -->
-      <!-- Foto 2 -->
-      <!-- Redes -->
 
-      <!-- Top Redes -->
-      <div class="flex items-center gap-4">
+      <!-- Fotos -->
+      <div class="flex flex-col gap-4">
+        <!-- Foto 1 -->
+        <app-subir-archivo [(archivo)]="urlFoto1" label="Foto 1" />
+        <!-- Foto 2 -->
+        <app-subir-archivo [(archivo)]="urlFoto2" label="Foto 2" />
+      </div>
+
+      <!-- Redes -->
+      <div class="flex items-center gap-4 mt-4">
         <span class="text-xl font-black">Redes Sociales</span>
         <button class="btn-icon-fab" type="button" (click)="showModalRedes()">
           <mat-icon class="text-white">add</mat-icon>
@@ -75,7 +76,11 @@
     </div>
 
     <div class="flex items-center">
+      @if (service.isLoading()) {
+      <div class="loader"></div>
+      } @else {
       <button mat-raised-button color="primary" type="submit">Guardar</button>
+      }
     </div>
   </form>
 </div>

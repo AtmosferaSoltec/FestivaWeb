@@ -1,9 +1,35 @@
 <div class="flex flex-col items-center">
-  <img
-    [src]="artista.url_foto"
-    [alt]="artista.nombre"
-    class="w-[120px] h-[120px] rounded-md object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-    (click)="open()"
-  />
-  <span> {{ artista.nombre }} </span>
+  <div class="relative w-[120px] h-[120px]">
+    @if (!imageLoaded()) {
+    <div class="flex items-center justify-center w-full h-full bg-colorFondo">
+      <div class="loader"></div>
+    </div>
+    }
+    <img
+      [src]="artista.url_foto"
+      [alt]="artista.nombre"
+      class="object-cover w-full h-full transition-transform duration-300 rounded-md cursor-pointer hover:scale-110 active:scale-100"
+      [ngClass]="{
+        'animate-shake': isDelete,
+        hidden: !imageLoaded()
+      }"
+      (load)="onImageLoad()"
+      (click)="open()"
+    />
+    @if (isDelete) {
+    <div class="absolute top-0 right-0">
+      <button
+        type="button"
+        mat-icon-button
+        matTooltip="Eliminar"
+        (click)="eliminar()"
+      >
+        <mat-icon class="text-white">delete</mat-icon>
+      </button>
+    </div>
+    }
+  </div>
+  @if (imageLoaded()) {
+    <span> {{ artista.nombre }} </span>
+  }
 </div>
