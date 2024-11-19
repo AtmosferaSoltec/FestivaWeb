@@ -22,10 +22,11 @@ export class VerDiscotecasService {
     this.isLoading.set(true);
     this.discotecaService
       .getAll()
-      .pipe(delay(1000))
+      //.pipe(delay(1000))
       .subscribe({
         next: (data: any) => {
           this.listDiscoteca.set(data);
+          this.showInfo.set(data[0]);
         },
         error: (error) => {
           console.log(error);

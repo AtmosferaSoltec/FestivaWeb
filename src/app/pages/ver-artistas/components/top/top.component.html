@@ -1,5 +1,6 @@
 <div class="flex items-center gap-2">
-  <span class="text-2xl font-bold">Crear Artista</span>
+  <span class="text-2xl font-bold">Artistas</span>
+  <div class="flex-auto block sm:hidden"></div>
   <button
     (click)="toAddArtista()"
     mat-mini-fab
@@ -9,7 +10,6 @@
   </button>
 
   @if (service.isDeleteActive()) {
-
   <button
     mat-mini-fab
     (click)="togleDeleted()"

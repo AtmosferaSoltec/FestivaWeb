@@ -1,15 +1,19 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, MatIconModule],
+  imports: [RouterModule, MatIconModule, MatButtonModule],
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent implements OnInit {
+
+  isVisible = signal(false);
+
   listNav = [
     {
       name: 'Discotecas',

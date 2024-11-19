@@ -9,22 +9,22 @@
     </div>
 
 
-    <img [src]="artista.url_foto" alt="">
+    <img [src]="artista()?.url_foto" alt="">
     
-    <div class="text-center">{{artista.nombre}}</div>
-    <span>{{artista.tipo}}</span>
+    <div class="text-center">{{artista()?.nombre}}</div>
+    <span>{{artista()?.tipo}}</span>
 
-    <span>{{artista.descrip}}</span>
+    <span>{{artista()?.descrip}}</span>
 
-    @for (item of artista.redes; track $index) {
+    @for (item of artista()?.redes; track $index) {
       <a [href]="item.url">Facebook</a>
     }
 
-    <span>{{artista.tags}}</span>
+    <span>{{artista()?.tags}}</span>
 
-    <img [src]="artista.url_foto2" alt="">
+    <img [src]="artista()?.url_foto2" alt="">
 
-    <span>{{artista.biografia}}</span>
+    <span>{{artista()?.biografia}}</span>
     
   </div>
 </div>

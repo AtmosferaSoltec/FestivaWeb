@@ -29,17 +29,6 @@
   </div>
 
   @if (service.showInfo()) {
-  <div
-    class="flex flex-col absolute top-0 bottom-0 right-0 w-[400px] z-10 h-screen bg-red-400"
-  >
-    <button mat-icon-button (click)="service.showInfo.set(null)">
-      <mat-icon>close</mat-icon>
-    </button>
-
-    <div>
-        <h3>{{ service.showInfo()?.nombre }}</h3>
-        <p>{{ service.showInfo()?.descrip }}</p>
-    </div>
-  </div>
+    <app-drawer-info-discoteca [discoteca]="service.showInfo()" />
   }
 </div>

@@ -5,11 +5,12 @@ import { CardDiscotecaComponent } from '../../components/card-discoteca/card-dis
 import { MatButtonModule } from '@angular/material/button';
 import { VerDiscotecasService } from './ver-discotecas.service';
 import Discoteca from '../../interfaces/discoteca';
+import { DrawerInfoDiscotecaComponent } from "./components/drawer-info-discoteca/drawer-info-discoteca.component";
 
 @Component({
   selector: 'app-ver-discotecas',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, CardDiscotecaComponent],
+  imports: [MatButtonModule, MatIconModule, CardDiscotecaComponent, DrawerInfoDiscotecaComponent],
   templateUrl: './ver-discotecas.component.html',
 })
 export class VerDiscotecasComponent {

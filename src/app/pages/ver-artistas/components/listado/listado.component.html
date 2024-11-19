@@ -1,7 +1,12 @@
-
-
-<div class="flex flex-wrap gap-4">
+<div class="overflow-x-auto">
+  <div class="grid grid-cols-3 gap-4 sm:grid-cols-5 md:7 lg:grid-cols-9">
     @for (item of service.listArtistas(); track $index) {
-    <app-card-artista [artista]="item" (openModal)="openModal(item)" (deleteArtista)="deleteArtista($event)" [isDelete]="service.isDeleteActive()" />
+    <app-card-artista
+      [artista]="item"
+      (openModal)="openModal(item)"
+      (deleteArtista)="deleteArtista($event)"
+      [isDelete]="service.isDeleteActive()"
+    />
     }
   </div>
+</div>

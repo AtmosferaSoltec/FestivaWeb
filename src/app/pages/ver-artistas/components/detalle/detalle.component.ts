@@ -11,17 +11,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './detalle.component.html',
 })
-export class DetalleComponent implements OnInit {
+export class DetalleComponent {
   service = inject(VerArtistasService);
 
-  artista!: Artista;
-
-  ngOnInit() {
-    if (this.service.isOpen() == null) {
-      return;
-    }
-    this.artista = this.service.isOpen()!;
-  }
+  artista = this.service.isOpen;
 
   dismiss() {
     this.service.isOpen.set(null);

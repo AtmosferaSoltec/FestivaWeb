@@ -1,0 +1,67 @@
+<div
+  class="bg-colorFondo flex flex-col absolute top-0 bottom-0 right-0 w-[400px] z-10 h-screen overflow-y-auto"
+>
+  <div class="flex flex-col gap-4 p-4">
+    <!-- Top -->
+    <div class="flex flex-row justify-between">
+      <span class="text-xl font-bold">{{ discoteca?.nombre }}</span>
+      <button mat-icon-button matTooltip="Cerrar">
+        <mat-icon class="text-colorT2">close</mat-icon>
+      </button>
+    </div>
+
+    <!-- Descripción -->
+    <span class="text-sm text-colorT2">{{ discoteca?.descrip }}</span>
+
+    <!-- Portada -->
+    <img
+      class="w-full h-[200px] object-cover rounded-lg"
+      src="{{ discoteca?.url_portada }}"
+      alt="Portada"
+    />
+
+    <!-- Logo - Titulo -->
+    <div class="flex items-center gap-4">
+      <img
+        class="object-cover w-20 h-20 rounded-full"
+        [src]="discoteca?.url_logo"
+        alt="Logo"
+      />
+      <div class="flex flex-col">
+        <span class="text-lg font-bold">{{ discoteca?.nombre }}</span>
+        <span class="text-sm text-colorT2">La mejor experiencia noctura</span>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-4 border-b opacity-50 border-colorT2"></div>
+
+    <!-- Ubicación -->
+    <div class="flex flex-col gap-2">
+      <div class="flex flex-row items-center gap-2 text-colorT2">
+        <mat-icon>location_on</mat-icon>
+        <span class="text-sm">{{ discoteca?.direc }}</span>
+      </div>
+      <button
+        type="button"
+        class="w-full py-2 transition-transform rounded-lg shadow-xl bg-colorFondo3 hover:scale-105 active:scale-100"
+      >
+        Ver en Google Maps
+      </button>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-4 border-b opacity-50 border-colorT2"></div>
+
+    <!-- Celular -->
+    <div class="flex flex-row items-center gap-2 text-colorT2">
+      <mat-icon>phone</mat-icon>
+      <span class="text-sm">{{ discoteca?.telf }}</span>
+    </div>
+
+    <div>
+        {{discoteca?.descrip}}
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<a
+  [routerLink]="[item.route]"
+  routerLinkActive="bg-colorP1 font-bold"
+  class="flex items-center w-full gap-2 px-4 py-2 text-white transition-colors rounded-xl hover:bg-colorP1 active:opacity-90"
+>
+  <mat-icon>{{ item.icon }}</mat-icon>
+  <span class="text-lg">{{ item.name }}</span>
+</a>
