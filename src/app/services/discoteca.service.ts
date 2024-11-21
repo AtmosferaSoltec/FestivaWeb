@@ -21,4 +21,8 @@ export class DiscotecaService {
   search(term: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/search`, { params: { term } });
   }
+
+  insert(body: any) {
+    return this.http.post(this.baseUrl, body);
+  }
 }

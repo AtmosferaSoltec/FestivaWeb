@@ -10,12 +10,13 @@
       <app-redes-sociales />
       <app-horarios-atencion />
       <div>
-        <button
-          class="w-full mt-4 btn"
-          (click)="service.save()"
-        >
+        @if (service.isLoading()) {
+        <div class="loader"></div>
+        } @else {
+        <button class="w-full mt-4 btn" (click)="service.save()">
           Guardar
         </button>
+        }
       </div>
     </div>
   </div>
