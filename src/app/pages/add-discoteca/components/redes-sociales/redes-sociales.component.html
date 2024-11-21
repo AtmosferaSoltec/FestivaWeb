@@ -18,7 +18,7 @@
     <tbody>
       @for (item of service.redes; track $index) {
       <tr class="bg-white border-b">
-        <td class="px-6 py-4">{{ item.id_red }}</td>
+        <td class="px-6 py-4">{{ item.nombre }}</td>
         <td class="px-6 py-4">{{ item.url }}</td>
         <td class="px-6 py-4">
           <button type="button" mat-icon-button (click)="removeRed($index)">

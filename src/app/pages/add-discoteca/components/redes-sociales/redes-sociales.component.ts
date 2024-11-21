@@ -20,6 +20,7 @@ export class RedesSocialesComponent {
     const dialogRef = this.dialog.open(DialogFormRedSocialComponent);
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== undefined) {
+        console.log(result);
         this.service.redes.push(result);
       }
     });
