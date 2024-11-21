@@ -29,4 +29,8 @@ export class VerDiscotecasComponent {
   showInfo(discoteca: Discoteca) {
     this.service.showInfo.set(discoteca);
   }
+
+  dismiss() {
+    this.service.showInfo.set(null);
+  }
 }
