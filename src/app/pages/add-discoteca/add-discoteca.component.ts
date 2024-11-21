@@ -1,9 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { InputComponent } from '../../../components/input/input.component';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogFormRedSocialComponent } from '../../../common/dialog-form-red-social/dialog-form-red-social.component';
+import { InputComponent } from '../../components/input/input.component';
+import { DialogFormRedSocialComponent } from '../../common/dialog-form-red-social/dialog-form-red-social.component';
 
 @Component({
   selector: 'app-add-discoteca',
@@ -16,9 +16,7 @@ export class AddDiscotecaComponent {
 
   listRedes: any[] = [];
 
-  removeRed(red: any) {
-
-  }
+  removeRed(red: any) {}
 
   showModalRedes() {
     const dialogRef = this.dialog.open(DialogFormRedSocialComponent);

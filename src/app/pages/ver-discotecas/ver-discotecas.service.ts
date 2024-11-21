@@ -26,7 +26,6 @@ export class VerDiscotecasService {
       .subscribe({
         next: (data: any) => {
           this.listDiscoteca.set(data);
-          this.showInfo.set(data[0]);
         },
         error: (error) => {
           console.log(error);
