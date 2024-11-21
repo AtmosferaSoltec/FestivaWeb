@@ -7,14 +7,14 @@ import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fir
 export class FirebaseService {
   storage = inject(Storage);
 
-  async uploadImage(file: File) {
+  async uploadImage(file: File, path: string = 'Fotos') {
     const now = new Date();
     const year = now.getFullYear();
     const month = now.getMonth() + 1;
 
     const fileExtension = file.name.split('.').pop();
 
-    const filePath = `Fotos/${year}/${month}/${Date.now()}.${
+    const filePath = `${path}/${year}/${month}/${Date.now()}.${
       fileExtension ?? ''
     }`;
     const storageRef = ref(this.storage, filePath);

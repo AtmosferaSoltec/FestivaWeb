@@ -1,0 +1,59 @@
+<div class="flex flex-col gap-2 mt-4">
+  <span class="text-xl font-black">Horarios de Atención</span>
+
+  <!-- Header -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Día</span>
+    <span class="flex-1">Apertura</span>
+    <span class="flex-1">Cierre</span>
+  </div>
+
+  <!-- Lunes -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Lunes</span>
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.lunIn" />
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.lunOut" />
+  </div>
+
+  <!-- Martes -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Martes</span>
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.marIn" />
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.marOut" />
+  </div>
+
+  <!-- Miércoles -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Miércoles</span>
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.mieIn" />
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.mieOut" />
+  </div>
+
+  <!-- Jueves -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Jueves</span>
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.jueIn" />
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.jueOut" />
+  </div>
+
+  <!-- Viernes -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Viernes</span>
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.vieIn" />
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.vieOut" />
+  </div>
+
+  <!-- Sábado -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Sábado</span>
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.sabIn" />
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.sabOut" />
+  </div>
+
+  <!-- Domingo -->
+  <div class="flex flex-row items-center w-full gap-2">
+    <span class="flex-1">Domingo</span>
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.domIn" />
+    <input type="time" class="flex-1 input-time" [(ngModel)]="service.domOut" />
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="flex flex-col w-full gap-2 px-1">
+  <!-- Input Nombre -->
+  <div>
+    <label for="nombre" class="label">Nombre</label>
+    <input
+      type="text"
+      class="input"
+      id="nombre"
+      placeholder="Ingrese Nombre"
+      [(ngModel)]="service.nombre"
+    />
+  </div>
+
+  <!-- Input Descripción -->
+  <div>
+    <label for="descrip" class="label">Descripción</label>
+    <input
+      type="text"
+      class="input"
+      id="descrip"
+      placeholder="Ingrese Descripción"
+      [(ngModel)]="service.descrip"
+    />
+  </div>
+
+  <!-- Input Teléfono -->
+  <div>
+    <label for="telf" class="label">Teléfono</label>
+    <input
+      type="text"
+      class="input"
+      id="telf"
+      placeholder="Ingrese Teléfono"
+      [(ngModel)]="service.telf"
+    />
+  </div>
+
+  <!-- Input Dirección -->
+  <div>
+    <label for="direc" class="label">Dirección</label>
+    <input
+      type="text"
+      class="input"
+      id="direc"
+      placeholder="Ingrese Dirección"
+      [(ngModel)]="service.direc"
+    />
+  </div>
+
+  <!-- Input Url Maps -->
+  <div>
+    <label for="maps" class="label">Url Maps</label>
+    <input
+      type="text"
+      class="input"
+      id="maps"
+      placeholder="https://"
+      [(ngModel)]="service.url_maps"
+    />
+  </div>
+
+  <!-- Subir Logo -->
+  <app-subir-archivo [(archivo)]="service.fotoLogo" label="Logo" />
+
+  <!-- Subir Portada -->
+  <app-subir-archivo [(archivo)]="service.fotoPortada" label="Portada" />
+  
+</div>

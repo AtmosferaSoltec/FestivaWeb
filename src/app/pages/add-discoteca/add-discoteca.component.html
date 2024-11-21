@@ -1,153 +1,21 @@
-<div class="flex flex-col gap-6 p-4">
-  <div class="flex items-center">
-    <button mat-icon-button>
-      <mat-icon class="text-white">arrow_back</mat-icon>
-    </button>
-    <span class="text-2xl font-black">Agregar Discoteca</span>
-  </div>
-
-  <div class="flex flex-row w-full gap-8">
-    <div class="flex flex-col flex-1 gap-4">
-      <span class="text-xl font-black">Información</span>
-      <app-input label="Nombre" placeholder="Ingrese nombre de la discoteca" />
-      <app-input label="Teléfono" placeholder="Ingrese teléfono" />
-      <app-input label="Dirección" placeholder="Ingrese dirección" />
-      <app-input label="Url Maps" placeholder="Ingrese URL de Google Maps" />
-      <app-input label="Descripción" placeholder="Agrega una descripción" />
-    </div>
-    <div class="flex flex-col flex-1 gap-4">
-      <span class="text-xl font-black">Imagenes</span>
-      <div class="flex flex-col gap-1">
-        <label for="logo" class="text-sm font-semibold text-colorT2"
-          >Logo</label
+<div class="flex flex-col items-center w-full h-screen py-4">
+  <div
+    class="sm:w-[500px] sm:bg-colorFondo p-6 sm:rounded-xl sm:shadow-xl gap-4"
+  >
+    <app-header />
+    <div
+      class="flex flex-col w-full h-screen pb-[120px] overflow-y-auto no-scrollbar"
+    >
+      <app-form />
+      <app-redes-sociales />
+      <app-horarios-atencion />
+      <div>
+        <button
+          class="w-full mt-4 btn"
+          (click)="service.save()"
         >
-        <input type="file" name="logo" />
-      </div>
-      <div class="flex flex-col gap-1">
-        <label for="logo" class="text-sm font-semibold text-colorT2"
-          >Portada</label
-        >
-        <input type="file" name="logo" />
-      </div>
-    </div>
-  </div>
-
-  <div class="flex flex-row w-full gap-8">
-    <div class="flex-1">
-      <span class="text-xl font-black">Horarios de Atención</span>
-      <table>
-        <thead>
-          <tr>
-            <th>Día</th>
-            <th>Apertura</th>
-            <th>Cierre</th>
-          </tr>
-        </thead>
-        <tbody class="text-black">
-          <tr>
-            <td class="text-white">Lunes</td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-          </tr>
-          <tr>
-            <td class="text-white">Martes</td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-          </tr>
-          <tr>
-            <td class="text-white">Miércoles</td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-          </tr>
-          <tr>
-            <td class="text-white">Jueves</td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-          </tr>
-          <tr>
-            <td class="text-white">Viernes</td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-          </tr>
-          <tr>
-            <td class="text-white">Sábado</td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-          </tr>
-          <tr>
-            <td class="text-white">Domingo</td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-            <td>
-              <input type="time" class="input-time" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- Redes Sociales -->
-    <div class="flex flex-col flex-1 gap-2">
-      <!-- Top Redes -->
-      <div class="flex items-center gap-4">
-        <span class="text-xl font-black">Redes Sociales</span>
-        <button class="btn-icon-fab" (click)="showModalRedes()">
-          <mat-icon class="text-white">add</mat-icon>
+          Guardar
         </button>
-      </div>
-      <!-- Tabla Redes -->
-      <div class="relative overflow-x-auto">
-        <table class="w-full text-sm text-left text-gray-500 rtl:text-right">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3">Red Social</th>
-              <th scope="col" class="px-6 py-3">Url</th>
-              <th scope="col" class="px-6 py-3">Nro</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (item of listRedes; track $index) {
-            <tr class="bg-white border-b">
-              <td class="px-6 py-4">{{ item.idRed }}</td>
-              <td class="px-6 py-4">{{ item.url }}</td>
-              <td class="px-6 py-4">
-                <div>
-                  <button mat-icon-button>
-                    <mat-icon class="text-colorFondo">edit</mat-icon>
-                  </button>
-                  <button mat-icon-button (click)="removeRed(item)">
-                    <mat-icon class="text-colorFondo">remove</mat-icon>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            }
-          </tbody>
-        </table>
       </div>
     </div>
   </div>

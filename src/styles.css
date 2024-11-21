@@ -11,13 +11,29 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.no-scrollbar {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.label {
+  @apply text-sm;
+  @apply text-colorT2;
+  @apply font-normal;
+}
+
 .input {
   @apply bg-gray-100;
   @apply border;
   @apply text-colorT2;
   @apply border-none;
   @apply text-sm;
-  @apply rounded-full;
+  @apply rounded-md;
   @apply focus:ring-colorP1;
   @apply focus:border-colorP1;
   @apply focus:outline-none;
@@ -26,6 +42,10 @@ body {
   @apply w-full;
   @apply py-2.5;
   @apply px-4;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md shadow-lg bg-colorFondo3 hover:opacity-80 active:opacity-100;
 }
 
 .btn-icon-fab {

@@ -1,5 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { EventoService } from '../services/evento.service';
+import { EventoService } from '../../services/evento.service';
 
 @Injectable({
   providedIn: 'root',

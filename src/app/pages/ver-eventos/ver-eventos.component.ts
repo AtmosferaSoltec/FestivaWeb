@@ -3,8 +3,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CardEventoComponent } from '../../components/card-evento/card-evento.component';
-import { VerEventosService } from '../ver-eventos.service';
 import { Router } from '@angular/router';
+import { VerEventosService } from './ver-eventos.service';
 
 @Component({
   selector: 'app-ver-eventos',
