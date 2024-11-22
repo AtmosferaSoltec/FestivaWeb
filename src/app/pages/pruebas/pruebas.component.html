@@ -1,0 +1,25 @@
+<!-- Botón para abrir el drawer -->
+<button
+  (click)="toggleDrawer()"
+  class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+>
+  Abrir Drawer
+</button>
+
+<!-- Drawer -->
+<div
+  class="fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out transform shadow-lg bg-red-50 w-full sm:w-[400px]"
+  [ngClass]="{
+    'translate-x-0': isDrawerOpen,
+    'translate-x-full': !isDrawerOpen
+  }"
+>
+  <!-- Contenido del Drawer -->
+  <div class="p-4">
+    <button (click)="toggleDrawer()" class="float-right" mat-icon-button>
+      <mat-icon class="text-red-500">close</mat-icon>
+    </button>
+    <h2 class="mb-4 text-xl font-semibold">Información</h2>
+    <p>Aquí puedes mostrar la información que desees.</p>
+  </div>
+</div>

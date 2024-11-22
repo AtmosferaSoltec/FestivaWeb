@@ -10,7 +10,7 @@
     </div>
 
     <!-- Listado de Cards -->
-    <div class="flex items-center justify-center">
+    <div class="h-[800px] sm:h-[1200px] overflow-y-auto no-scrollbar flex items-center justify-center">
       @if (service.isLoading()) {
       <div class="mt-10 loader"></div>
       } @else {
@@ -28,10 +28,16 @@
     </div>
   </div>
 
-  @if (service.showInfo()) {
-  <app-drawer-info-discoteca
-    [discoteca]="service.showInfo()"
-    (dismiss)="dismiss()"
-  />
-  }
+  <div
+    class="z-10 fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out transform shadow-lg bg-red-50 w-full sm:w-[400px]"
+    [ngClass]="{
+      'translate-x-0': service.showInfo(),
+      'translate-x-full': !service.showInfo()
+    }"
+  >
+    <app-drawer-info-discoteca
+      [discoteca]="service.showInfo()"
+      (dismiss)="dismiss()"
+    />
+  </div>
 </div>

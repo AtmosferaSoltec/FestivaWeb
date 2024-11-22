@@ -3,6 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { authGuard } from './guards/auth.guard';
 import { menuRoutes } from './pages/menu/menu.routes';
+import { PruebasComponent } from './pages/pruebas/pruebas.component';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,10 @@ export const routes: Routes = [
     component: MenuComponent,
     canActivate: [authGuard],
     loadChildren: () => menuRoutes,
+  },
+  {
+    path: 'pruebas',
+    component: PruebasComponent,
   },
   {
     path: '**',
