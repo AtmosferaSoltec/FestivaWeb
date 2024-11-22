@@ -1,0 +1,9 @@
+<div
+  class="fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out transform shadow-lg bg-colorFondo w-full sm:w-[400px] z-10"
+  [ngClass]="{
+    'translate-x-0': isOpen,
+    'translate-x-full': !isOpen
+  }"
+>
+  <ng-content></ng-content>
+</div>

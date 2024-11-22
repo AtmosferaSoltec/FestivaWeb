@@ -6,20 +6,10 @@
   Abrir Drawer
 </button>
 
-<!-- Drawer -->
-<div
-  class="fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out transform shadow-lg bg-red-50 w-full sm:w-[400px]"
-  [ngClass]="{
-    'translate-x-0': isDrawerOpen,
-    'translate-x-full': !isDrawerOpen
-  }"
->
-  <!-- Contenido del Drawer -->
-  <div class="p-4">
-    <button (click)="toggleDrawer()" class="float-right" mat-icon-button>
-      <mat-icon class="text-red-500">close</mat-icon>
-    </button>
-    <h2 class="mb-4 text-xl font-semibold">Información</h2>
-    <p>Aquí puedes mostrar la información que desees.</p>
+<app-sidebar [isOpen]="isDrawerOpen">
+  <div class="w-full h-full bg-green-200">
+    hola
   </div>
-</div>
+</app-sidebar>
+
+<!-- Drawer -->

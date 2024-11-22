@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { SidebarComponent } from "../../components/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-pruebas',
@@ -9,8 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     MatButtonModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    SidebarComponent
+],
   templateUrl: './pruebas.component.html',
 })
 export class PruebasComponent {

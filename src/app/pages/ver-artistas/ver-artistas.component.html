@@ -1,4 +1,4 @@
-<div class="relative">
+<div>
   <div class="flex flex-col gap-8 p-4">
     <app-top />
     <div class="h-[800px] overflow-y-auto no-scrollbar">
@@ -6,7 +6,10 @@
     </div>
   </div>
 
-  @if (service.isOpen()) {
-  <app-detalle />
-  }
+  <app-sidebar [isOpen]="service.isOpen() != null">
+    <app-detalle
+      [artista]="service.isOpen()!"
+      (close)="service.isOpen.set(null)"
+    />
+  </app-sidebar>
 </div>

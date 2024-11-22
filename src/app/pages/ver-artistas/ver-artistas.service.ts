@@ -21,6 +21,7 @@ export class VerArtistasService {
     this.artistaService.getAll().subscribe({
       next: (data: any) => {
         this.listArtistas.set(data ?? []);
+        this.isOpen.set(this.listArtistas()[3]);
       },
       error: (error) => {
         alert(error);

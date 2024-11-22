@@ -1,30 +1,70 @@
-<div
-  class="fixed top-0 right-0 w-full sm:w-[300px] z-50 bg-colorFondo h-screen"
->
-  <div class="flex flex-col items-center">
-    <div class="w-full">
-      <button mat-icon-button (click)="dismiss()">
-        <mat-icon class="text-white">close</mat-icon>
-      </button>
+<div class="flex flex-col items-center gap-2 px-8 py-4">
+  <!-- Button Close -->
+  <button class="self-end" mat-icon-button (click)="dismiss()">
+    <mat-icon class="text-white">close</mat-icon>
+  </button>
+
+  <div
+    class="relative flex flex-col items-center w-full p-8 text-center rounded-lg shadow-lg bg-colorFondo3 mt-[80px]"
+  >
+    <!-- Artist Image -->
+    <div
+      class="absolute -top-[80px] w-[160px] h-[160px] rounded-full border-[5px] border-colorP1"
+    >
+      @if (!imgPerfilLoaded) {
+      <!-- Imagen No Cargada -->
+      <div class="flex items-center justify-center w-full h-full">
+        <div class="loader"></div>
+      </div>
+      }
+      <!-- Imagen Cargada -->
+      <img
+        class="object-cover w-full h-full rounded-full"
+        [src]="artista?.url_foto"
+        alt="Perfil"
+        [ngClass]="{
+          hidden: !imgPerfilLoaded
+        }"
+        (load)="imgPerfilLoaded = true"
+      />
     </div>
 
+    <span class="mt-[60px] text-xl font-bold">{{ artista?.nombre }}</span>
+    <span class="text-sm text-colorT2">{{ artista?.tipo }}</span>
+    <span class="text-sm text-colorT2">{{ artista?.descrip }}</span>
 
-    <img [src]="artista()?.url_foto" alt="">
-    
-    <div class="text-center">{{artista()?.nombre}}</div>
-    <span>{{artista()?.tipo}}</span>
+    <!-- Social Media -->
+    <div class="flex flex-row items-center gap-2 mt-4">
+      <app-btn-red-social img="/images/facebook.png" />
+      <app-btn-red-social img="/images/instagram.png" />
+      <app-btn-red-social img="/images/tiktok.png" />
+    </div>
+  </div>
 
-    <span>{{artista()?.descrip}}</span>
+  <span class="mt-4">{{ artista?.tags }}</span>
 
-    @for (item of artista()?.redes; track $index) {
-      <a [href]="item.url">Facebook</a>
-    }
+  <div class="flex flex-col w-full mt-4 rounded-lg shadow-lg bg-colorFondo3">
+    <div class="w-full h-[160px]">
+      @if (!imgPerfilLoaded) {
+      <!-- Imagen No Cargada -->
+      <div class="flex items-center justify-center w-full h-full">
+        <div class="loader"></div>
+      </div>
+      }
+      <!-- Imagen Cargada -->
+      <img
+        class="object-cover w-full h-full rounded-t-lg"
+        [src]="artista?.url_foto2"
+        alt="Portada"
+        [ngClass]="{
+          hidden: !imgPortadaLoaded
+        }"
+        (load)="imgPortadaLoaded = true"
+      />
+    </div>
 
-    <span>{{artista()?.tags}}</span>
-
-    <img [src]="artista()?.url_foto2" alt="">
-
-    <span>{{artista()?.biografia}}</span>
-    
+    <span class="w-full p-4 text-sm text-colorT2">{{
+      artista?.biografia
+    }}</span>
   </div>
 </div>
