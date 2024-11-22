@@ -1,7 +1,7 @@
-<div class="relative transition-transform">
-  <div class="flex flex-col p-8">
+<div class="relative h-full transition-transform">
+  <div class="flex flex-col h-full gap-4">
     <!-- Cabecera -->
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between mx-4 mt-4">
       <h3>Discotecas</h3>
       <button mat-raised-button (click)="toAdd()">
         <mat-icon>add</mat-icon>
@@ -10,7 +10,9 @@
     </div>
 
     <!-- Listado de Cards -->
-    <div class="h-[800px] sm:h-[1200px] overflow-y-auto no-scrollbar flex items-center justify-center">
+    <div
+      class="flex items-center justify-center p-4 overflow-x-hidden overflow-y-auto no-scrollbar"
+    >
       @if (service.isLoading()) {
       <div class="mt-10 loader"></div>
       } @else {
@@ -29,7 +31,7 @@
   </div>
 
   <div
-    class="z-10 fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out transform shadow-lg bg-red-50 w-full sm:w-[400px]"
+    class="z-10 fixed top-0 right-0 h-screen transition-transform duration-300 ease-in-out transform shadow-lg bg-red-50 w-full sm:w-[400px]"
     [ngClass]="{
       'translate-x-0': service.showInfo(),
       'translate-x-full': !service.showInfo()
