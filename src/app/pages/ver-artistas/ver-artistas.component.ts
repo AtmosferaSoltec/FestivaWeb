@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { VerArtistasService } from './ver-artistas.service';
 import { TopComponent } from './components/top/top.component';
@@ -11,7 +11,10 @@ import { SidebarComponent } from '../../components/sidebar/sidebar.component';
   imports: [DetalleComponent, TopComponent, ListadoComponent, SidebarComponent],
   templateUrl: './ver-artistas.component.html',
 })
-export class VerArtistasComponent {
+export class VerArtistasComponent implements OnDestroy {
+  ngOnDestroy(): void {
+    this.service.isOpen.set(null)
+  }
 
   service = inject(VerArtistasService);
 }

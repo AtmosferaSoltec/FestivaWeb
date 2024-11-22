@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, OnDestroy, signal } from '@angular/core';
 import Artista from '../../interfaces/artista';
 import { ArtistaService } from '../../services/artista.service';
 
@@ -21,7 +21,6 @@ export class VerArtistasService {
     this.artistaService.getAll().subscribe({
       next: (data: any) => {
         this.listArtistas.set(data ?? []);
-        this.isOpen.set(this.listArtistas()[3]);
       },
       error: (error) => {
         alert(error);
