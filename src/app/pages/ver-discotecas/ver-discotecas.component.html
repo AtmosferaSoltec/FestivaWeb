@@ -29,6 +29,9 @@
   </div>
 
   @if (service.showInfo()) {
-    <app-drawer-info-discoteca [discoteca]="service.showInfo()" (dismiss)="dismiss()" />
+  <app-drawer-info-discoteca
+    [discoteca]="service.showInfo()"
+    (dismiss)="dismiss()"
+  />
   }
 </div>

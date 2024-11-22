@@ -65,15 +65,16 @@
     <!-- Redes Sociales -->
     <div class="flex flex-col gap-2">
       <span class="text-lg font-bold">Redes Sociales</span>
-      <div>
-        <!-- Facebook -->
-        <mat-icon>facebook</mat-icon>
-
-        <!-- Instagram -->
-        <mat-icon>instagram</mat-icon>
-
-        <!-- Twitter -->
-        <mat-icon>twitter</mat-icon>
+      <div class="flex flex-row gap-2">
+        @for (red of discoteca?.discotecaRedes; track $index) {
+        <a [href]="red.url">
+          <img
+            [src]="getIconRed(red.cod, red.logo)"
+            alt="Facebook"
+            class="w-[40px] h-[40px] hover:scale-105 active:scale-100 transition-transform cursor-pointer"
+          />
+        </a>
+        }
       </div>
     </div>
 
