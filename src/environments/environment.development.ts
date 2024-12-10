@@ -1,6 +1,6 @@
 export const environment = {
   //baseUrl: 'http://localhost:2323/api',
-  baseUrl: 'https://sv-YaAUgKfBpu.cloud.elastika.pe:2323/api',
+  baseUrl: 'https://atmosfera-soltec.com:2323/api',
   token: 'VbjwDLWdExc29Ky',
   firebaseConfig: {
     projectId: 'festiva-4798f',
